@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PI_PorrtabilidadeWebOkPrrojetos.Models;
 using System.Diagnostics;
 
 namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
 {
+    [Authorize]//Anotação Identity
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -13,6 +15,7 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
             _logger = logger;
         }
 
+        [AllowAnonymous]//Permite Vizualização de não-Usuarios
         public IActionResult Index()
         {
             return View();
