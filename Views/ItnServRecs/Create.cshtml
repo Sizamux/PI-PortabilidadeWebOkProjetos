@@ -1,0 +1,58 @@
+﻿@model PI_PorrtabilidadeWebOkPrrojetos.Models.ItnServRec
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>ItnServRec</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdOrdRec" class="control-label"></label>
+                <input asp-for="IdOrdRec" class="form-control" />
+                <span asp-validation-for="IdOrdRec" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdOrdServ" class="control-label"></label>
+                <input asp-for="IdOrdServ" class="form-control" />
+                <span asp-validation-for="IdOrdServ" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Valor" class="control-label"></label>
+                <input asp-for="Valor" class="form-control" />
+                <span asp-validation-for="Valor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataDeCriacao" class="control-label"></label>
+                <input asp-for="DataDeCriacao" class="form-control" />
+                <span asp-validation-for="DataDeCriacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UltimaModificacao" class="control-label"></label>
+                <input asp-for="UltimaModificacao" class="form-control" />
+                <span asp-validation-for="UltimaModificacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

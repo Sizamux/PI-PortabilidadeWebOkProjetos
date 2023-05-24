@@ -1,0 +1,59 @@
+﻿@model PI_PorrtabilidadeWebOkPrrojetos.Models.OrdServico
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>OrdServico</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="NumeroPo" class="control-label"></label>
+                <input asp-for="NumeroPo" class="form-control" />
+                <span asp-validation-for="NumeroPo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NomeOperadora" class="control-label"></label>
+                <input asp-for="NomeOperadora" class="form-control" />
+                <span asp-validation-for="NomeOperadora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescricaoPo" class="control-label"></label>
+                <input asp-for="DescricaoPo" class="form-control" />
+                <span asp-validation-for="DescricaoPo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FaseAtual" class="control-label"></label>
+                <input asp-for="FaseAtual" class="form-control" />
+                <span asp-validation-for="FaseAtual" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataDeCriacao" class="control-label"></label>
+                <input asp-for="DataDeCriacao" class="form-control" />
+                <span asp-validation-for="DataDeCriacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UltimaModificacao" class="control-label"></label>
+                <input asp-for="UltimaModificacao" class="form-control" />
+                <span asp-validation-for="UltimaModificacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

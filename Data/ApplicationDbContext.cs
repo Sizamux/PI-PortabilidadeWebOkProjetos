@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using PI_PorrtabilidadeWebOkPrrojetos.Models;
 
 namespace PI_PorrtabilidadeWebOkPrrojetos.Data
 {
@@ -9,5 +10,8 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Data
             : base(options)
         {
         }
+        public DbSet<PI_PorrtabilidadeWebOkPrrojetos.Models.ItnServRec> ItnServRec { get; set; } = default!;
+        public DbSet<PI_PorrtabilidadeWebOkPrrojetos.Models.OrdServico> OrdServico { get; set; } = default!;
+        public DbSet<PI_PorrtabilidadeWebOkPrrojetos.Models.OrdRecebimento> OrdRecebimento { get; set; } = default!;
     }
 }
