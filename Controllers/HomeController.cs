@@ -21,7 +21,8 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        [AllowAnonymous]//Permite Vizualização de não-Usuarios
+        public IActionResult Contact()
         {
             return View();
         }
