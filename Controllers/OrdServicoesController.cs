@@ -91,7 +91,7 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NumeroPo,NomeOperadora,DescricaoPo,FaseAtual,UltimaModificacao")] OrdServico ordServico)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NumeroPo,NomeOperadora,DescricaoPo,FaseAtual,DataDeCriacao")] OrdServico ordServico)
         {
             if (id != ordServico.Id)
             {

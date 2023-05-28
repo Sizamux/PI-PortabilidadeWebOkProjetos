@@ -61,9 +61,12 @@
                 @Html.DisplayFor(modelItem => item.UltimaModificacao)
             </td>
             <td>
+
+                <a asp-controller="ItnServRecs" asp-action="Create" asp-route-IdOrdServ="@item.Id">Teste</a>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
             </td>
         </tr>
 }

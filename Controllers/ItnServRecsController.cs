@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -48,7 +49,7 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
         }
 
         // GET: ItnServRecs/Create
-        public IActionResult Create()
+        public IActionResult Create(int? IdOrdServ)
         {
             return View();
         }
@@ -58,7 +59,7 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,IdOrdRec,IdOrdServ,Descricao,Valor")] ItnServRec itnServRec)
+        public async Task<IActionResult> Create([Bind("Id,IdOrdRec,IdOrdServ,Descricao,Valor,")] ItnServRec itnServRec)
         {
             if (ModelState.IsValid)
             {
@@ -91,8 +92,9 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,IdOrdRec,IdOrdServ,Descricao,Valor")] ItnServRec itnServRec)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,IdOrdRec,IdOrdServ,Descricao,Valor,DataDeCriacao")] ItnServRec itnServRec)
         {
+            Debug.WriteLine(">>>>>>" + itnServRec.Id + " " + itnServRec.DataDeCriacao);
             if (id != itnServRec.Id)
             {
                 return NotFound();
