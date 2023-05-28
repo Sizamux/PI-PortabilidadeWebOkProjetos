@@ -58,10 +58,11 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NumeroNf,Status,DataDeRecebimento,DataDeCriacao,UltimaModificacao")] OrdRecebimento ordRecebimento)
+        public async Task<IActionResult> Create([Bind("Id,NumeroNf,Status,DataDeRecebimento")] OrdRecebimento ordRecebimento)
         {
             if (ModelState.IsValid)
             {
+                OrdRecebimentoBO.CriarOrdRecebimento(ordRecebimento);
                 _context.Add(ordRecebimento);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -90,7 +91,7 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NumeroNf,Status,DataDeRecebimento,DataDeCriacao,UltimaModificacao")] OrdRecebimento ordRecebimento)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NumeroNf,Status,DataDeRecebimento")] OrdRecebimento ordRecebimento)
         {
             if (id != ordRecebimento.Id)
             {
@@ -101,6 +102,7 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
             {
                 try
                 {
+                    OrdRecebimentoBO.AtuaizarOrdRecebimento(ordRecebimento);
                     _context.Update(ordRecebimento);
                     await _context.SaveChangesAsync();
                 }

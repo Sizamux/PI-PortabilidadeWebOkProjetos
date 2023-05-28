@@ -58,10 +58,11 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NumeroPo,NomeOperadora,DescricaoPo,FaseAtual,DataDeCriacao,UltimaModificacao")] OrdServico ordServico)
+        public async Task<IActionResult> Create([Bind("Id,NumeroPo,NomeOperadora,DescricaoPo,FaseAtual")] OrdServico ordServico)
         {
             if (ModelState.IsValid)
             {
+                OrdServicoBO.CriarOrdServico(ordServico);
                 _context.Add(ordServico);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -90,7 +91,7 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NumeroPo,NomeOperadora,DescricaoPo,FaseAtual,DataDeCriacao,UltimaModificacao")] OrdServico ordServico)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NumeroPo,NomeOperadora,DescricaoPo,FaseAtual,UltimaModificacao")] OrdServico ordServico)
         {
             if (id != ordServico.Id)
             {
@@ -99,6 +100,7 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
 
             if (ModelState.IsValid)
             {
+                OrdServicoBO.AtuaizarOrdServico(ordServico);
                 try
                 {
                     _context.Update(ordServico);

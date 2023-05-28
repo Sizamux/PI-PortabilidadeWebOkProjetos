@@ -58,10 +58,11 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,IdOrdRec,IdOrdServ,Descricao,Valor,DataDeCriacao,UltimaModificacao")] ItnServRec itnServRec)
+        public async Task<IActionResult> Create([Bind("Id,IdOrdRec,IdOrdServ,Descricao,Valor")] ItnServRec itnServRec)
         {
             if (ModelState.IsValid)
             {
+                ItnServRecBO.CriarItnServRec(itnServRec);
                 _context.Add(itnServRec);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -90,7 +91,7 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,IdOrdRec,IdOrdServ,Descricao,Valor,DataDeCriacao,UltimaModificacao")] ItnServRec itnServRec)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,IdOrdRec,IdOrdServ,Descricao,Valor")] ItnServRec itnServRec)
         {
             if (id != itnServRec.Id)
             {
@@ -101,6 +102,7 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
             {
                 try
                 {
+                    ItnServRecBO.AtuaizarCriarItnServRec(itnServRec);
                     _context.Update(itnServRec);
                     await _context.SaveChangesAsync();
                 }
