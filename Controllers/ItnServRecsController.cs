@@ -29,6 +29,23 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
                           View(await _context.ItnServRec.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.ItnServRec'  is null.");
         }
+        // GET: ItnServRecs/IndexByServicos
+        public async Task<IActionResult> IndexByServicos(int? IdOrdServ)
+        {
+            if (IdOrdServ == null || _context.ItnServRec == null)
+            {
+                return NotFound();
+            }
+            var itnServRec = _context.ItnServRec.Where(u => u.IdOrdServ == IdOrdServ).ToList();
+            
+            if (itnServRec == null)
+            {
+                return NotFound();
+            }
+            return _context.ItnServRec != null ?
+                          View(itnServRec) :
+                          Problem("Entity set 'ApplicationDbContext.ItnServRec'  is null.");
+        }
 
         // GET: ItnServRecs/Details/5
         public async Task<IActionResult> Details(int? id)

@@ -7,7 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Criar Novo</a>
 </p>
 <table class="table">
     <thead>
@@ -33,7 +33,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.UltimaModificacao)
             </th>
-            <th></th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
@@ -61,12 +61,11 @@
                 @Html.DisplayFor(modelItem => item.UltimaModificacao)
             </td>
             <td>
-
-                <a asp-controller="ItnServRecs" asp-action="Create" asp-route-IdOrdServ="@item.Id">Teste</a>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-
+                <a asp-controller="ItnServRecs" asp-action="Create" asp-route-IdOrdServ="@item.Id">Criar Itens</a> |
+                <a asp-controller="ItnServRecs" asp-action="IndexByServicos" asp-route-IdOrdServ="@item.Id">Ver Itens</a> |
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
             </td>
         </tr>
 }
