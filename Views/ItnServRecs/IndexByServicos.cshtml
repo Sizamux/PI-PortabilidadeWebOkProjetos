@@ -19,9 +19,11 @@
                 @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
+                
                 @Html.DisplayNameFor(model => model.IdOrdRec)
             </th>
             <th>
+                
                 @Html.DisplayNameFor(model => model.IdOrdServ)
             </th>
             <th>
@@ -47,16 +49,16 @@
                     @Html.DisplayFor(modelItem => item.Id)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdOrdRec)
+                    <a asp-controller="OrdRecebimentoes" asp-action="Details" asp-route-id="@item.IdOrdRec"> @Html.DisplayFor(modelItem => item.IdOrdRec)</a>
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdOrdServ)
+                    <a asp-controller="OrdServicoes" asp-action="Details" asp-route-id="@item.IdOrdServ"> @Html.DisplayFor(modelItem => item.IdOrdServ)</a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Descricao)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Valor)
+                    @Html.DisplayFor(modelItem => item.Valor)  
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DataDeCriacao)
