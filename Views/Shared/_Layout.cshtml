@@ -10,7 +10,9 @@
 </head>
 <body>
     <header>
-
+        <div id="bannerimage">
+            <img src="~/img/header-bg.png" />
+        </div>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-primary border-bottom box-shadow mb-3" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Sistema Financeiro</a>
@@ -20,9 +22,6 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="OrdServicoes" asp-action="Index">Serviços</a>
                         </li>
@@ -43,7 +42,7 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            @RenderBody()
+                @RenderBody()
         </main>
     </div>
 
