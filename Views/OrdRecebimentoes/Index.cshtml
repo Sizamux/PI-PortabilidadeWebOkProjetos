@@ -4,12 +4,12 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Todos Itens de Nota Fiscal</h1>
+<h1 class="display-5">Todos Itens de Nota Fiscal</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Criar Novo</a>
 </p>
-<table class="table">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>
@@ -30,7 +30,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.UltimaModificacao)
             </th>
-            <th></th>
+            <th>
+                Ações
+            </th>
         </tr>
     </thead>
     <tbody>
