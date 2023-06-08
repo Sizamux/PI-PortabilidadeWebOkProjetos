@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -15,6 +16,7 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
     public class OrdRecebimentoesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        static int? IdFromItmServGlobal;
 
         public OrdRecebimentoesController(ApplicationDbContext context)
         {
@@ -48,8 +50,10 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
         }
 
         // GET: OrdRecebimentoes/Create
-        public IActionResult Create()
+        public IActionResult Create(int? IdFromItmServ)
         {
+            IdFromItmServGlobal = IdFromItmServ;
+            Debug.WriteLine("1>>>>" + IdFromItmServGlobal + "<<<<");
             return View();
         }
 
@@ -58,15 +62,30 @@ namespace PI_PorrtabilidadeWebOkPrrojetos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NumeroNf,Status,DataDeRecebimento")] OrdRecebimento ordRecebimento)
+        public async Task<IActionResult> Create([Bind("Id,NumeroNf,Status,DataDeRecebimento")] OrdRecebimento ordRecebimento, int? IdFromItmServ)
         {
             if (ModelState.IsValid)
             {
+                Debug.WriteLine("2>>>>" + IdFromItmServGlobal + "<<<<");
                 OrdRecebimentoBO.CriarOrdRecebimento(ordRecebimento);
                 _context.Add(ordRecebimento);
-                await _context.SaveChangesAsync();
+                _context.SaveChanges();
+                //_context.SaveChangesAsync();
+                if (IdFromItmServGlobal != null) {
+                    int newOrdId = ordRecebimento.Id;
+                    var itnServRec =  _context.ItnServRec
+                        .FirstOrDefault(m => m.Id == IdFromItmServGlobal);
+                    if(IdFromItmServGlobal != null)
+                    {
+                        itnServRec.IdOrdRec = newOrdId;
+                        _context.SaveChanges();
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
+
+
+
             return View(ordRecebimento);
         }
 
