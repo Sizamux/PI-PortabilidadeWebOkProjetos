@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\temRecToRec.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\img\header-bg.png" />
   </ItemGroup>
 

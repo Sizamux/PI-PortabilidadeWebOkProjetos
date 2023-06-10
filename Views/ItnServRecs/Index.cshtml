@@ -40,12 +40,12 @@
             <th>
                 @Html.DisplayFor(modelItem => item.Id)
             </th>
-        <td>
+            <td>
                 @if (item.IdOrdRec.HasValue)
                 {
                     <a asp-controller="OrdRecebimentoes" asp-action="Details" asp-route-id="@item.IdOrdRec"> @Html.DisplayFor(modelItem => item.IdOrdRec)</a>
                 } else {
-                        <a asp-controller="OrdRecebimentoes" asp-action="Create" asp-route-IdFromItmServ="@item.Id"> Gerar Nota Fiscal</a>
+                    <a asp-controller="OrdRecebimentoes" asp-action="Create" asp-route-IdFromItmServ="@item.Id"> Gerar Nota Fiscal</a>
                 }
             </td>
             <td>
